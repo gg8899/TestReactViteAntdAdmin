@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
 import { HomeOutlined, ManOutlined, MessageOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
@@ -24,23 +25,29 @@ function getItem(
 }
 
 const items: MenuProps['items'] = [
-  getItem('首页', 'home', <HomeOutlined />),
-  getItem('订单管理', 'orderList', <ManOutlined />),
-  getItem('待定', 'other', <MessageOutlined />),
+  getItem(<Link to="home">首页</Link>, '/home', <HomeOutlined />),
+  getItem(<Link to="orderList">订单管理</Link>, '/orderList', <ManOutlined />),
+  getItem(<Link to="other">待定</Link>, '/other', <MessageOutlined />),
 ];
 
 
 
 const SildeMenu: React.FC = () => {
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', location,e);
+  const location = useLocation();
+  const [path, setPath] = useState('home')
+  useEffect(() => {
+    setPath(location.pathname)
+    
+  }, [location])
+  const onClick: MenuProps['onClick'] = ({ key }) => {
+    // console.log(`/${key}`);
   };
   return (
     <div className='wrapper'>
       <Sider className='siderStyle'>
         <Menu
           onClick={onClick}
-          defaultSelectedKeys={['home']}
+          selectedKeys={[path]}
           mode="inline"
           items={items}
         />
