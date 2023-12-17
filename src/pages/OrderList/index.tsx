@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Button, Form, Input, Table, Divider } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import axios from 'axios'
+
+
 import './index.less'
 
 interface DataType {
@@ -15,6 +18,13 @@ interface DataType {
     难道要写css-in-js来写吗。如何使用less来进行样式隔离。
 */
 const OrderList: React.FC = () => {
+    useEffect(()=>{
+        axios.get('/api/get').then(res=>{
+            console.log(res);
+            
+        })
+        
+    },[])
     const [form] = Form.useForm();
     const columns: ColumnsType<DataType> = [
         {
@@ -81,7 +91,7 @@ const OrderList: React.FC = () => {
                 </div>
             </div>
             <div style={{ marginTop: '30px' }} />
-            <Table columns={columns} dataSource={data} pagination={{ pageSize: 50 }} scroll={{ y: 240 }} />
+            <Table columns={columns} dataSource={data} pagination={{ pageSize: 50 }} scroll={{ y: 300 }} />
         </Card>
     );
 }
