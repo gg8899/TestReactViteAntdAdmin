@@ -8,7 +8,8 @@ export default defineConfig({
     react(),
     viteMockServe({
       mockPath: 'mock',
-      enable: true,
+      localEnabled: true,
+      supportTs: true,
     }),
   ],
   resolve: {

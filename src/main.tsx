@@ -4,6 +4,10 @@ import { RouterProvider } from 'react-router-dom';
 import Loading from '@/components/Loading/index.tsx'
 import router from '@/router/index.tsx';
 import '@/assets/normalize.css';
+import { setupMock } from './mock'; //mock
+// if(import.meta.env === 'development'){ 
+  setupMock()//dev环境开启mock
+// }
 
 /* 
   路由搭建：

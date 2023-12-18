@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Form, Input, Table, Divider } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import axios from 'axios'
+import { useRequest, useDebounce } from 'ahooks'
+// import axios from 'axios'
+import request from '../../request/index.tsx'
 
 
 import './index.less'
@@ -18,13 +20,20 @@ interface DataType {
     难道要写css-in-js来写吗。如何使用less来进行样式隔离。
 */
 const OrderList: React.FC = () => {
-    useEffect(()=>{
-        axios.get('/api/get').then(res=>{
-            console.log(res);
-            
+    const [data, setData] = useState<any>([]);
+    const getDataList = () => {
+        request.get('/mock/api/getList').then(res => {
+            console.log(res, 'res');
+        }).catch(err => {
+            console.log(err);
         })
-        
-    },[])
+    }
+    useEffect(() => {
+        getDataList();
+    }, [])
+
+
+
     const [form] = Form.useForm();
     const columns: ColumnsType<DataType> = [
         {
@@ -58,15 +67,7 @@ const OrderList: React.FC = () => {
             </>,
         },
     ];
-    const data: DataType[] = [];
-    for (let i = 0; i < 100; i++) {
-        data.push({
-            key: i,
-            name: `Edward King ${i}`,
-            age: 32,
-            address: `我是暴富人我是有钱人我是有钱有钱有钱人超级无敌有钱有钱有钱 ${i}`,
-        });
-    }
+
     return (
         <Card className='orderListCls'>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -75,7 +76,7 @@ const OrderList: React.FC = () => {
                     form={form}
                     initialValues={{ layout: "inline" }}
                 >
-                    <Form.Item label="姓名">
+                    <Form.Item label="姓名" name="name">
                         <Input placeholder="请输入" />
                     </Form.Item>
                     <Form.Item label="爱好">
