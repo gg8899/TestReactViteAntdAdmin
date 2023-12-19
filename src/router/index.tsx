@@ -10,6 +10,7 @@ const Other = lazy(() => import('../pages/Other/index.tsx'));
 
 const routes = [
     {
+      // 需要重定向到 home 组件页面。
       path: "/",
       element: <App />,
       errorElement: <ErrorPage />,

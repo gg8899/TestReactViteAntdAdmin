@@ -17,9 +17,6 @@ dependencies:
   axios:
     specifier: ^1.6.2
     version: 1.6.2
-  mockjs:
-    specifier: ^1.1.0
-    version: 1.1.0
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -67,6 +64,9 @@ devDependencies:
   less:
     specifier: ^4.2.0
     version: 4.2.0
+  mockjs:
+    specifier: ^1.1.0
+    version: 1.1.0
   redux-devtools:
     specifier: ^3.7.0
     version: 3.7.0(react-redux@9.0.4)(react@18.2.0)(redux@5.0.0)
@@ -1360,7 +1360,7 @@ packages:
   /commander@11.1.0:
     resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==, tarball: https://registry.npmmirror.com/commander/-/commander-11.1.0.tgz}
     engines: {node: '>=16'}
-    dev: false
+    dev: true
 
   /compute-scroll-into-view@3.1.0:
     resolution: {integrity: sha512-rj8l8pD4bJ1nx+dAkMhV1xB5RuZEyVysfxJqB1pRchh1KVvwOv9b7CGB8ZfjTImVv2oF+sYMUkMZq6Na5Ftmbg==, tarball: https://registry.npmmirror.com/compute-scroll-into-view/-/compute-scroll-into-view-3.1.0.tgz}
@@ -2021,7 +2021,7 @@ packages:
     hasBin: true
     dependencies:
       commander: 11.1.0
-    dev: false
+    dev: true
 
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==, tarball: https://registry.npmmirror.com/ms/-/ms-2.1.2.tgz}

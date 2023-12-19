@@ -24,6 +24,7 @@ const OrderList: React.FC = () => {
     const getDataList = () => {
         request.get('/mock/api/getList').then(res => {
             console.log(res, 'res');
+            setData(res.list)
         }).catch(err => {
             console.log(err);
         })
@@ -37,22 +38,25 @@ const OrderList: React.FC = () => {
     const [form] = Form.useForm();
     const columns: ColumnsType<DataType> = [
         {
-            title: 'Name',
+            title: '名字',
             dataIndex: 'name',
             width: 150,
+            key: '1',
         },
         {
-            title: 'Age',
+            title: '年龄',
             dataIndex: 'age',
             width: 150,
+            key: '2',
         },
         {
-            title: 'Address',
+            title: '地址',
             dataIndex: 'address',
+            key: '3',
         },
-        { title: 'Column 6', dataIndex: 'address', key: '6' },
-        { title: 'Column 7', dataIndex: 'address', key: '7' },
-        { title: 'Column 8', dataIndex: 'address', key: '8' },
+        { title: 'Column 6', dataIndex: 'address1', key: '6' },
+        { title: 'Column 7', dataIndex: 'address2', key: '7' },
+        { title: 'Column 8', dataIndex: 'address3', key: '8' },
         {
             title: 'Action',
             key: 'operation',
@@ -79,7 +83,7 @@ const OrderList: React.FC = () => {
                     <Form.Item label="姓名" name="name">
                         <Input placeholder="请输入" />
                     </Form.Item>
-                    <Form.Item label="爱好">
+                    <Form.Item label="爱好" name="hobby">
                         <Input placeholder="请输入" />
                     </Form.Item>
                     <Form.Item>

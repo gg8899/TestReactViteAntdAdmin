@@ -14,7 +14,6 @@
     "ahooks": "^3.7.8",
     "antd": "^5.12.2",
     "axios": "^1.6.2",
-    "mockjs": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.4",
@@ -32,6 +31,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "less": "^4.2.0",
+    "mockjs": "^1.1.0",
     "redux-devtools": "^3.7.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
