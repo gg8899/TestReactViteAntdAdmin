@@ -1,0 +1,28 @@
+.board-container {
+    padding: 20px;
+
+    .border-row {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        .square {
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-width: 1px;
+            border-bottom-width: 0px;
+
+            &:nth-child(-n+2) {
+                border-right-width: 0px;
+                // border-bottom-width: 0px;
+            }
+        }
+
+        &:last-child>.square {
+            border-bottom-width: 1px;
+        }
+    }
+
+
+}
