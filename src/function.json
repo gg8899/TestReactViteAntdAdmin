@@ -1,0 +1,24 @@
+[
+    {
+        "path": "/",
+        "element": "App",
+        "children": [
+            {
+                "element": "Home",
+                "path": "home"
+            },
+            {
+                "element": "OrderList",
+                "path": "orderList"
+            },
+            {
+                "element": "Other",
+                "path": "other"
+            }
+        ]
+    },
+    {
+        "path": "/playGames",
+        "element": "PlayGames"
+    }
+]
